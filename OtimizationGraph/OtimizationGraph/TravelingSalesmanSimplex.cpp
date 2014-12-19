@@ -8,7 +8,6 @@ TravelingSalesmanSimplex::TravelingSalesmanSimplex(int variables)
 	this->size = variables;
 	lastInsertedVariable = 0;
 	rows = (double*)malloc(totalSize * sizeof(rows));
-	solution = (double*)malloc(totalSize * sizeof(solution));
 	colNumber = (int *)malloc(totalSize * sizeof(rows));
 	//printf("Size: %d\n", size);
 }
@@ -17,7 +16,9 @@ TravelingSalesmanSimplex::TravelingSalesmanSimplex(char* fileName)
 {
 	lp = read_LP(fileName, NORMAL, "Traveling salesman");
 	int totalSize = get_Ncolumns(lp);
-	this->size = sqrt(totalSize); 
+
+    this->size = static_cast<int>(sqrt(totalSize));
+	lastInsertedVariable = 0;
 	rows = (double*)malloc(totalSize * sizeof(rows));
 	solution = (double*)malloc(totalSize * sizeof(solution));
 	colNumber = (int *)malloc(totalSize * sizeof(rows));
@@ -26,6 +27,9 @@ TravelingSalesmanSimplex::TravelingSalesmanSimplex(char* fileName)
 
 TravelingSalesmanSimplex::~TravelingSalesmanSimplex()
 {
+	free(colNumber);
+	free(rows);
+	free(solution);
 	delete_lp(lp);
 }
 
@@ -98,29 +102,37 @@ void TravelingSalesmanSimplex::SetupConstraints()
 	}
 }
 
-SalesmanGraph* TravelingSalesmanSimplex::Solve()
+void TravelingSalesmanSimplex::Solve()
 {
+
 	set_minim(lp);
 
-	set_verbose(lp, IMPORTANT);
+	//set_verbose(lp, NORMAL);
 
 	if (solve(lp) != OPTIMAL)
 	{
 		printf("Error in solving the problem");
-		return NULL;
+		return;
 	}
-	
 	get_variables(lp, solution);
+	delete_lp(lp);
+
+	/*
 
 	z = get_objective(lp);
-	printf("Objective value: %f\n", z);
+    printf("Objective value: %f\n", z);*/
 
-	for (int j = 0; j < size * size; j++)
-		printf("%s: %f\n", get_col_name(lp, j + 1), solution[j]);
-	return new SalesmanGraph(size, solution);
+	//for (int j = 0; j < size * size; j++)
+	//	printf("%s: %f\n", get_col_name(lp, j + 1), solution[j]);
+
 }
 
 void TravelingSalesmanSimplex::SetupObjectiveFunction()
 {
 	set_obj_fnex(lp, lastInsertedVariable, rows, colNumber);
+}
+
+SalesmanGraph* TravelingSalesmanSimplex::CreateGraph()
+{
+	return new SalesmanGraph(size, solution);
 }

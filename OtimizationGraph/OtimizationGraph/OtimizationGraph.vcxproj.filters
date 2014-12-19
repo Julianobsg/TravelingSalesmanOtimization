@@ -24,13 +24,13 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="OtimizationSimplex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SalesmanGraph.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SNodes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TravelingSalesmanSimplex.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

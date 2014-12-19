@@ -9,7 +9,7 @@
 
 int main(void)
 {
-	TravelingSalesmanSimplex* tss = new TravelingSalesmanSimplex(3);
+	/*TravelingSalesmanSimplex* tss = new TravelingSalesmanSimplex(3);
 	tss->AddVariable(1);
 	tss->AddVariable(2);
 	tss->AddVariable(3);
@@ -20,12 +20,15 @@ int main(void)
 	tss->AddVariable(8);
 	tss->AddVariable(9);
 	tss->SetupConstraints();
-	tss->SetupObjectiveFunction();
-	tss->WriteFile("teste");
+	*///tss->SetupObjectiveFunction();
+	//tss->WriteFile("teste");
+	
 	TravelingSalesmanSimplex* tss2 = new TravelingSalesmanSimplex("model.lp");
-	tss2->WriteFile("teste3");
-	SalesmanGraph* sGraph = tss2->Solve();
-	sGraph->PrintGroups();
+	//tss2->WriteFile("teste3");
+	tss2->Solve();
+	SalesmanGraph* sGraph = tss2->CreateGraph();
+	sGraph->WriteLaTex();
+	//sGraph->PrintGroups();
 
 	return 0;
 }

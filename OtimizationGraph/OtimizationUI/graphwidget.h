@@ -1,7 +1,7 @@
 #include <QGraphicsView>
 #include <qmath.h>
 
-#include <D:/Projects/UFABC/OtimizationGraph/OtimizationGraph/SalesmanGraph.h>
+#include "../OtimizationGraph/SalesmanGraph.h"
 #ifndef GRAPH_H
 #define GRAPH_H
 class Node;
@@ -23,8 +23,8 @@ protected:
     void scaleView(qreal scaleFactor);
 private:
     int timerId;
-    void GenerateNodes(SalesmanGraph* sGraph);
-    void GenerateEdges(SNodes* nodes);
+    void GenerateNodes(SalesmanGraph *sGraph);
+    void GenerateEdges(SalesmanGraph* sGraph);
     QGraphicsScene *scene;
     QList<Node*> nodes;
 };

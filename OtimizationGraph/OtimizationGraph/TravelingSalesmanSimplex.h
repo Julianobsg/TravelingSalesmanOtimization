@@ -9,13 +9,13 @@ using namespace std;
 class TravelingSalesmanSimplex
 {
 public:
-	double* solution;
 	double z;
 	void AddVariable(double value);
 	void WriteFile(string fileName);
 	void SetupObjectiveFunction();
 	void SetupConstraints();
-	SalesmanGraph* Solve();
+	void Solve();
+	SalesmanGraph* CreateGraph();
 	TravelingSalesmanSimplex(int variables);
 	TravelingSalesmanSimplex(char* fileName);
 	~TravelingSalesmanSimplex();
@@ -25,5 +25,6 @@ private:
 	int lastInsertedVariable;
 	int* colNumber;
 	double* rows;
+	REAL *solution;
 };
 

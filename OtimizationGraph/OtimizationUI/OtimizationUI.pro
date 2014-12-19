@@ -31,9 +31,10 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui
 
-INCLUDEPATH += D:\Projects\UFABC\OtimizationGraph\Libs
+INCLUDEPATH += ..\Libs
 
 unix|win32: LIBS += -l..\Libs\liblpsolve55 /NODEFAULTLIB:MSVCRTD
 
 
 unix|win32: LIBS += -l..\Libs\lpsolve55
+

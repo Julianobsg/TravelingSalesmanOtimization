@@ -86,11 +86,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OtimizationSimplex.h" />
     <ClInclude Include="SalesmanGraph.h" />
     <ClInclude Include="SNodes.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TravelingSalesmanSimplex.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OtimizationGraph.cpp" />

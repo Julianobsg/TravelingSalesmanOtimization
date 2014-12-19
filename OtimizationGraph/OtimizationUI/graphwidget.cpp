@@ -3,7 +3,7 @@
 #include "edge.h"
 static const double Pi = 3.14159265358979323846264338327950288419717;
 
-#include <D:/Projects/UFABC/OtimizationGraph/OtimizationGraph/TravelingSalesmanSimplex.h>
+#include "../OtimizationGraph/TravelingSalesmanSimplex.h"
 
 
 GraphWidget::GraphWidget(QWidget *parent) : QGraphicsView(parent), timerId(0)
@@ -87,9 +87,14 @@ void GraphWidget::scaleView(qreal scaleFactor)
 
 void GraphWidget::LoadFile(QString filename)
 {
+    printf("TESTE");
     TravelingSalesmanSimplex* tss = new TravelingSalesmanSimplex(filename.toLocal8Bit().data());
-    SalesmanGraph* sGraph = tss->Solve();
+    tss->Solve();
+    SalesmanGraph* sGraph = tss->CreateGraph();
     GenerateNodes(sGraph);
+    GenerateEdges(sGraph);
+    free(tss);
+    free(sGraph);
 }
 
 void GraphWidget::GenerateNodes(SalesmanGraph* sGraph)
@@ -108,9 +113,16 @@ void GraphWidget::GenerateNodes(SalesmanGraph* sGraph)
     }
 }
 
-void GraphWidget::GenerateEdges(SNodes *nodes)
+void GraphWidget::GenerateEdges(SalesmanGraph* sGraph)
 {
-
+    SNodes* sNodes = sGraph->nodes;
+    for (int i = 0; i < sGraph->size; ++i) {
+        int source = sNodes[i].id;
+        int destiny = sNodes[i].edge->id;
+        printf("Source: %d Destiny: %d", source, destiny);
+//        Edge *edge = new Edge(nodes[source], nodes[destiny]);
+//        scene->addItem(edge);
+    }
 }
 
 

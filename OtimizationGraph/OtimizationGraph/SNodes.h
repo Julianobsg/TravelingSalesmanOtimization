@@ -1,10 +1,13 @@
+#include <list>
 #pragma once
+using namespace std;
+
 class SNodes
 {
 public:
 	int id;
 	int group;
-	SNodes* edge;
+	list<SNodes*> edge;
 
 	void AddEdge(SNodes* nodes);
 	SNodes();

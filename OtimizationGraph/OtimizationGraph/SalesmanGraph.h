@@ -2,6 +2,10 @@
 #include "SNodes.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <fstream>
+#include <lp_lib.h>
+
+using namespace std;
 
 class SalesmanGraph
 {
@@ -10,7 +14,11 @@ public:
 	int maxS;
 	SNodes* nodes;
 	void PrintGroups();
-	SalesmanGraph(int size, double* edges);
+	void WriteLaTex();
+	SalesmanGraph(int size, REAL* edges);
 	~SalesmanGraph();
+private:
+	string GetColor(int id);
+	REAL* edges;
 };
 
