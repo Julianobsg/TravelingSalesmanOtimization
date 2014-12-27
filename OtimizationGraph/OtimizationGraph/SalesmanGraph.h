@@ -12,6 +12,7 @@ class SalesmanGraph
 public:
 	int size;
 	int maxS;
+	int z;
 	SNodes* nodes;
 	void PrintGroups();
 	void WriteLaTex();

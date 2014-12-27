@@ -1,60 +1,81 @@
-$x_{1\_13} = 1.000000$&$x_{2\_16} = 1.000000$&$x_{3\_2} = 1.000000$&$x_{4\_17} = 1.000000$\\
-$x_{5\_4} = 1.000000$&$x_{6\_7} = 1.000000$&$x_{7\_15} = 1.000000$&$x_{8\_12} = 1.000000$\\
-$x_{9\_8} = 1.000000$&$x_{10\_11} = 1.000000$&$x_{11\_14} = 1.000000$&$x_{12\_1} = 1.000000$\\
-$x_{13\_10} = 1.000000$&$x_{14\_3} = 1.000000$&$x_{15\_5} = 1.000000$&$x_{16\_6} = 1.000000$\\
-$x_{17\_9} = 1.000000$&
+\begin{table}[h]
+\begin{tabular}{lllll}
+
+
+$x_{1\_12} = 1.000000$&$x_{2\_13} = 1.000000$&$x_{3\_14} = 1.000000$&$x_{4\_7} = 1.000000$\\
+$x_{5\_4} = 1.000000$&$x_{6\_16} = 1.000000$&$x_{7\_15} = 1.000000$&$x_{8\_9} = 1.000000$\\
+$x_{9\_17} = 1.000000$&$x_{10\_11} = 1.000000$&$x_{11\_10} = 1.000000$&$x_{12\_1} = 1.000000$\\
+$x_{13\_2} = 1.000000$&$x_{14\_3} = 1.000000$&$x_{15\_5} = 1.000000$&$x_{16\_6} = 1.000000$\\
+$x_{17\_8} = 1.000000$&
+\end{tabular}
+\end{table}
+\begin{tikzpicture}[transform shape]                                              
+  %the multiplication with floats is not possible. Thus I split the loop in two.   
+  \tikzstyle{graphNode}=[draw,circle,thick,minimum size=6mm, inner sep = 0.25cm]  
+    \tikzstyle{red}=[graphNode,draw=red!75,fill=red!20]                           
+    \tikzstyle{blue}=[graphNode,draw=blue!75,fill=blue!20]                        
+    \tikzstyle{yellow}=[graphNode,draw=black!75,fill=yellow!20]                   
+    \tikzstyle{orange}=[graphNode,draw=orange!75,fill=orange!20]                  
+    \tikzstyle{gray}=[graphNode,draw=gray!75,fill=gray!20]                        
+    \tikzstyle{green}=[graphNode,draw=green!75,fill=green!20]                     
+    \tikzstyle{white}=[graphNode,draw=black!75,fill=white!20]                     
+    \tikzstyle{purple}=[graphNode,draw=black!75,fill=purple!20]                   
+    \tikzstyle{brown}=[graphNode,draw=black!75,fill=brown!20]                     
 % desenhando grafo 
 \mycount = 0\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
 \node[yellow](n-1) at(\the\mycount:5.4cm) {1};
 \mycount = 1\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-2) at(\the\mycount:5.4cm) {2};
+\node[red](n-2) at(\the\mycount:5.4cm) {2};
 \mycount = 2\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-3) at(\the\mycount:5.4cm) {3};
+\node[orange](n-3) at(\the\mycount:5.4cm) {3};
 \mycount = 3\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-4) at(\the\mycount:5.4cm) {4};
+\node[gray](n-4) at(\the\mycount:5.4cm) {4};
 \mycount = 4\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-5) at(\the\mycount:5.4cm) {5};
+\node[gray](n-5) at(\the\mycount:5.4cm) {5};
 \mycount = 5\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-6) at(\the\mycount:5.4cm) {6};
+\node[green](n-6) at(\the\mycount:5.4cm) {6};
 \mycount = 6\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-7) at(\the\mycount:5.4cm) {7};
+\node[gray](n-7) at(\the\mycount:5.4cm) {7};
 \mycount = 7\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-8) at(\the\mycount:5.4cm) {8};
+\node[white](n-8) at(\the\mycount:5.4cm) {8};
 \mycount = 8\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-9) at(\the\mycount:5.4cm) {9};
+\node[white](n-9) at(\the\mycount:5.4cm) {9};
 \mycount = 9\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-10) at(\the\mycount:5.4cm) {10};
+\node[purple](n-10) at(\the\mycount:5.4cm) {10};
 \mycount = 10\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-11) at(\the\mycount:5.4cm) {11};
+\node[purple](n-11) at(\the\mycount:5.4cm) {11};
 \mycount = 11\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
 \node[yellow](n-12) at(\the\mycount:5.4cm) {12};
 \mycount = 12\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-13) at(\the\mycount:5.4cm) {13};
+\node[red](n-13) at(\the\mycount:5.4cm) {13};
 \mycount = 13\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-14) at(\the\mycount:5.4cm) {14};
+\node[orange](n-14) at(\the\mycount:5.4cm) {14};
 \mycount = 14\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-15) at(\the\mycount:5.4cm) {15};
+\node[gray](n-15) at(\the\mycount:5.4cm) {15};
 \mycount = 15\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-16) at(\the\mycount:5.4cm) {16};
+\node[green](n-16) at(\the\mycount:5.4cm) {16};
 \mycount = 16\advance\mycount by - 1\multiply\mycount by 21\advance\mycount by 22.5
-\node[yellow](n-17) at(\the\mycount:5.4cm) {17};
-\draw[->, >= latex](n-1) -- (n-13);
-\draw[->, >= latex](n-2) -- (n-16);
-\draw[->, >= latex](n-3) -- (n-2);
-\draw[->, >= latex](n-4) -- (n-17);
+\node[white](n-17) at(\the\mycount:5.4cm) {17};
+\draw[->, >= latex](n-1) -- (n-12);
+\draw[->, >= latex](n-2) -- (n-13);
+\draw[->, >= latex](n-3) -- (n-14);
+\draw[->, >= latex](n-4) -- (n-7);
 \draw[->, >= latex](n-5) -- (n-4);
-\draw[->, >= latex](n-6) -- (n-7);
+\draw[->, >= latex](n-6) -- (n-16);
 \draw[->, >= latex](n-7) -- (n-15);
-\draw[->, >= latex](n-8) -- (n-12);
-\draw[->, >= latex](n-9) -- (n-8);
+\draw[->, >= latex](n-8) -- (n-9);
+\draw[->, >= latex](n-9) -- (n-17);
 \draw[->, >= latex](n-10) -- (n-11);
-\draw[->, >= latex](n-11) -- (n-14);
+\draw[->, >= latex](n-11) -- (n-10);
 \draw[->, >= latex](n-12) -- (n-1);
-\draw[->, >= latex](n-13) -- (n-10);
+\draw[->, >= latex](n-13) -- (n-2);
 \draw[->, >= latex](n-14) -- (n-3);
 \draw[->, >= latex](n-15) -- (n-5);
 \draw[->, >= latex](n-16) -- (n-6);
-\draw[->, >= latex](n-17) -- (n-9);
+\draw[->, >= latex](n-17) -- (n-8);
 
+	\end{tikzpicture} 
  %Colocando conjunto de soluçoes
-$S_{1}(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17)$
+$S_{1}(1,12)$,$S_{2}(2,13)$,$S_{3}(3,14)$,$S_{4}(4,5,7,15)$,$S_{5}(6,16)$,$S_{6}(8,9,17)$,$S_{7}(10,11)$
+
+A função objetiva é: 12.

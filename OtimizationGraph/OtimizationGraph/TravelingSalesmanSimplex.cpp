@@ -27,9 +27,9 @@ TravelingSalesmanSimplex::TravelingSalesmanSimplex(char* fileName)
 
 TravelingSalesmanSimplex::~TravelingSalesmanSimplex()
 {
-	free(colNumber);
-	free(rows);
-	free(solution);
+	//free(colNumber);
+	//free(rows);
+	//free(solution);
 	delete_lp(lp);
 }
 
@@ -115,12 +115,10 @@ void TravelingSalesmanSimplex::Solve()
 		return;
 	}
 	get_variables(lp, solution);
-	delete_lp(lp);
 
-	/*
 
 	z = get_objective(lp);
-    printf("Objective value: %f\n", z);*/
+    printf("Objective value: %f\n", z);
 
 	//for (int j = 0; j < size * size; j++)
 	//	printf("%s: %f\n", get_col_name(lp, j + 1), solution[j]);

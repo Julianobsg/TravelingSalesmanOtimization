@@ -27,8 +27,11 @@ int main(void)
 	//tss2->WriteFile("teste3");
 	tss2->Solve();
 	SalesmanGraph* sGraph = tss2->CreateGraph();
+	sGraph->z = tss2->z;
 	sGraph->WriteLaTex();
-	//sGraph->PrintGroups();
+	sGraph->PrintGroups();
 
+	delete(tss2);
+	delete(sGraph);
 	return 0;
 }

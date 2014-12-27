@@ -3,6 +3,7 @@
 
 SalesmanGraph::SalesmanGraph(int size, REAL* edges)
 {
+	z = 0;
 	nodes = new SNodes[size * size];
 	this->size = size;
 	int i;
@@ -40,18 +41,18 @@ SalesmanGraph::~SalesmanGraph()
 
 void SalesmanGraph::PrintGroups()
 {
-	//for (int i = 0; i < maxS; i++)
-	//{
-	//	printf("S%d:", i);
-	//	for (int j = 0; j < size; j++)
-	//	{
-	//		if (nodes[j]->group == i + 1)
-	//		{
-	//			printf(" %d,", nodes[j]->id);
-	//		}
-	//	}
-	//	printf("\n");
-	//}
+	for (int i = 0; i < maxS; i++)
+	{
+		printf("S%d:", i);
+		for (int j = 0; j < size; j++)
+		{
+			if (nodes[j].group == i + 1)
+			{
+				printf(" %d,", nodes[j].id);
+			}
+		}
+		printf("\n");
+	}
 }
 
 void SalesmanGraph::WriteLaTex()
@@ -61,7 +62,7 @@ void SalesmanGraph::WriteLaTex()
 
 	myfile.open("graphLatex.tex");
 	string edgeText = "";
-
+	myfile << "\\begin{table}[h]"  		   << "\n\\begin{tabular}{lllll}\n\n\n";
 	int tabCounter = 0;
 	for (int i = 0; i < size * size; i++)
 	{
@@ -86,17 +87,11 @@ void SalesmanGraph::WriteLaTex()
 				+ to_string(nodes[row].id) + ") -- (n-" + to_string(nodes[col].id) + ");\n";
 		}
 	}
-	//myfile << "\n\\begin{ tikzpicture }[transform shape]\n"
-	//	<< "\\tikzstyle{ graphNode } = [draw, circle, thick, minimum size = 6mm, inner sep = 0.25cm]\n"
-	//	<< "\\tikzstyle{ red } = [graphNode, draw = red!75, fill = red!20]\n"
-	//	<< "\\tikzstyle{ blue } = [graphNode, draw = blue!75, fill = blue!20]\n"
-	//	<< "\\tikzstyle{ yellow } = [graphNode, draw = black!75, fill = yellow!20]\n"
-	//	<< "\\tikzstyle{ orange } = [graphNode, draw = orange!75, fill = orange!20]\n"
-	//	<< "\\tikzstyle{ gray } = [graphNode, draw = gray!75, fill = gray!20]\n"
-	//	<< "\\tikzstyle{ green } = [graphNode, draw = green!75, fill = green!20]\n"
-	//	<< "\\tikzstyle{ white } = [graphNode, draw = black!75, fill = white!20]\n"
-	//	<< "\\tikzstyle{ purple } = [graphNode, draw = black!75, fill = purple!20]\n"
-	//	<< "\\tikzstyle{ brown } = [graphNode, draw = black!75, fill = brown!20]\n";
+
+	myfile << "\n\\end{tabular}"	       << "\n\\end{table}";
+
+	myfile << "\n\\begin{tikzpicture}[transform shape]                                              "		<< "\n  %the multiplication with floats is not possible. Thus I split the loop in two.   "		<< "\n  \\tikzstyle{graphNode}=[draw,circle,thick,minimum size=6mm, inner sep = 0.25cm]  "		<< "\n    \\tikzstyle{red}=[graphNode,draw=red!75,fill=red!20]                           "		<< "\n    \\tikzstyle{blue}=[graphNode,draw=blue!75,fill=blue!20]                        "		<< "\n    \\tikzstyle{yellow}=[graphNode,draw=black!75,fill=yellow!20]                   "		<< "\n    \\tikzstyle{orange}=[graphNode,draw=orange!75,fill=orange!20]                  "		<< "\n    \\tikzstyle{gray}=[graphNode,draw=gray!75,fill=gray!20]                        "		<< "\n    \\tikzstyle{green}=[graphNode,draw=green!75,fill=green!20]                     "		<< "\n    \\tikzstyle{white}=[graphNode,draw=black!75,fill=white!20]                     "		<< "\n    \\tikzstyle{purple}=[graphNode,draw=black!75,fill=purple!20]                   "		<< "\n    \\tikzstyle{brown}=[graphNode,draw=black!75,fill=brown!20]                     ";
+
 	myfile << "\n% desenhando grafo \n";
 
 	for (int i = 0; i < size; i++)
@@ -112,7 +107,7 @@ void SalesmanGraph::WriteLaTex()
 	}
 	myfile << edgeText;
 	//myfile << "\\end{tikzpicture}";
-	myfile << "\n %Colocando conjunto de soluçoes\n";
+	myfile << "\n	\\end{tikzpicture} \n %Colocando conjunto de soluçoes\n";
 	const char* sSeparator = "";
 	for (int i = 0; i < maxS -1; i++)
 	{
@@ -129,6 +124,8 @@ void SalesmanGraph::WriteLaTex()
 		myfile << ")$";
 		sSeparator = ",";
 	}
+
+	myfile << "\n\nA função objetiva é: " << z << ".";
 	/*myfile << "  \\foreach \\number in {1,...," << size << "}{\n"
 	    << "\\mycount = \\number"
 		<< "\\advance\\mycount by - 1"
